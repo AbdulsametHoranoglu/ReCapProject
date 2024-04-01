@@ -3,6 +3,7 @@ using Entities.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,10 +42,20 @@ public class InMemoryCarDal : ICarDal
         return _cars;
     }
 
+    public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+    {
+        throw new NotImplementedException();
+    }
+
     public void GetById(int id)
     {
         _cars[id].Id = id;
 
+    }
+
+    public void GetById(Car entity)
+    {
+        throw new NotImplementedException();
     }
 
     public void Update(Car car)

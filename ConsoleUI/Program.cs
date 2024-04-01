@@ -1,7 +1,11 @@
 ﻿using Business.Concretes;
+using DataAccsess.Abstract;
+using DataAccsess.Concretes.EntityFramework;
 using DataAccsess.Concretes.InMemory;
 
-CarManager carManager = new CarManager(new InMemoryCarDal());
+EfCarDal efCarDal = new EfCarDal();
+
+CarManager carManager = new CarManager(efCarDal);
 
 foreach (var car in carManager.GetAll())
 {

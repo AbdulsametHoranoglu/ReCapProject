@@ -18,10 +18,33 @@ public class CarManager : ICarManager
         _carDal = carDal;
     }
 
+    public List<Car> Add(Car car)
+    {
+        throw new NotImplementedException();
+    }
 
+
+    //ADO.NET = veri tabanına bağlanmamızı sağlayan, veri tabanını kontrol etmemizi sağllayan, veri tabanına sorgu yazmamızı
+    //sağlayan bir kütüphanedir . bu kütüphane vasıtasıyla verilerimizi listeleyebilir, yeni veri ekleyebilir, güncelliyebiliriz
+    //ama günümüzde bununla yazdığımız kodlar zordur onun yerine :ilişkiyi kolaylaştırmak ve sağlamak(ENTİTY FRAMEWORK)için
+    //çeşitli ORM - dediğimiz yapıları kullanırız 
+
+    //ORM - Object relational mapping = Nesnelerin veri tabanı ile bağdaştırılması
+    //alternatifleri = NHibernate
+    //Dapper  = aslında bir orm değil ado.netkolaylaştırılmış versiyonudur
 
     public List<Car> GetAll()
     {
         return _carDal.GetAll();
+    }
+
+    public List<Car> GetCarsBylBrandId(int id)
+    {
+        return _carDal.GetAll(c=>c.BrandId == id);
+    }
+
+    public List<Car> GetCarsBylColorId(int id)
+    {
+        return _carDal.GetAll(p=> p.ColorId == id);
     }
 }

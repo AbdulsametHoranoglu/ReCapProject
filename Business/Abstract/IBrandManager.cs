@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract;
 
-public interface ICarManager
+public interface IBrandManager
 {
     List<Car> GetAll();
     List<Car> GetCarsBylBrandId(int id);
